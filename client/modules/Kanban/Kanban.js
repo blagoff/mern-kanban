@@ -37,3 +37,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   createLane: createLaneRequest,
 };
+
+// higher-order functions
+connect(mapStateToProps, mapDispatchToProps)
+export default compose(
+)(Kanban);
