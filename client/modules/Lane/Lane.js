@@ -1,17 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Lane from './Lane.js';
+import NotesContainer from '../Note/NoteContainer';
+import Edit from '../../components/Edit';
 
-const Lanes = ({ lanes }) => {
+import styles from './Lane.css';
+
+const Lane = (props) => {
+const { lane, laneNotes, updateLane, addNote, deleteLane, editLane } = props;
+const laneId = lane.id; 
+
   return (
-    <div className="lanes">{lanes.map(lane =>
-      <Lane className="lane" key={lane.id} lane={lane} />
-    )}</div>
+    <div className={styles.Lane}>
+      <div className={styles.LaneHeader}>
+        <div className={styles.LaneAddNote}>
+          <button onClick={() => addNote({ task: 'New Note'}, laneId)}>Add Note</button>
+        </div>
+        <Edit
+          className={styles.LaneName}
+          editing={lane.editing}
+          value={lane.name}
+          onValueClick={() => editLane(laneId)}
+
+          onUpdate={name => updateLane({ ...lane, name, editing: false })}
+        />
+        <div className={styles.LaneDelete}>
+          <button onClick={() => deleteLane(laneId)}>Remove Lane</button>
+        </div>
+      </div>
+      <NotesContainer notes={laneNotes} laneId={laneId} />
+    </div>
   );
 };
 
-Lanes.propTypes = {
-  lanes: PropTypes.array,
+Lane.propTypes = {
+  lane: PropTypes.object,
+  laneNotes: PropTypes.array,
+  addNote: PropTypes.func,
+  updateLane: PropTypes.func,
+  deleteLane: PropTypes.func,
+  editLane: PropTypes.func,
 };
 
-export default Lanes;
+export default Lane;

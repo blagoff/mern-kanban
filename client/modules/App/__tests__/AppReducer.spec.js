@@ -6,7 +6,7 @@ import { toggleAddPost } from '../AppActions';
 test('action for TOGGLE_ADD_POST is working', reducerTest(
   appReducer,
   { showAddPost: false },
-  toggleAddPost(),
+  toggleAddPost(), 
   { showAddPost: true },
 ));
 

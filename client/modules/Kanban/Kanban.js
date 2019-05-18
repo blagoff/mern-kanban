@@ -1,22 +1,16 @@
+import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-
-
-import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 import Lanes from '../Lane/Lanes';
-
-// Import Style
 import styles from './Kanban.css';
-// import styles from '../Lane/Lane.css';
 
-const Kanban = props => (
-  <div className={styles.buttonLane}>
+const Kanban = (props) => ( 
+  <div className={styles.Kanban}>
     <button
-      className={styles.buttonAddLane}
+      className={styles.AddLane}
       onClick={() => props.createLane({
-        name: 'New Lane',
+        name: 'New lane',
       })}
     >Add lane</button>
     <Lanes lanes={props.lanes} />
@@ -36,9 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   createLane: createLaneRequest,
+  fetchLanes,
 };
 
-// higher-order functions
-connect(mapStateToProps, mapDispatchToProps)
-export default compose(
-)(Kanban);
+export default connect(mapStateToProps, mapDispatchToProps)(Kanban);

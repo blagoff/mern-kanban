@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 import { Header } from '../../components/Header/Header';
-import { intl } from '../../../../util/react-intl-test-helper';
+import { intl } from '../../../../util/react-intl-test-helper'; 
 
 const intlProp = { ...intl, enabledLanguages: ['en', 'fr'] };
 

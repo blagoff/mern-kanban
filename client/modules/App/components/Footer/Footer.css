@@ -2,16 +2,17 @@
   text-align: center;
   padding: 56px 0;
   background-size: cover;
+  height: 10vh;
 }
 
 .footer p{
   margin: 0 0 8px 0;
   font-size: 14px;
-  color: #FFF;
+  color: white;
 }
 
 .footer a{
-  color: #FFF;
+  color: white;
   text-decoration: none;
   font-weight: 700;
 }

@@ -6,7 +6,7 @@ import { shallow, mount } from 'enzyme';
 import { App } from '../App';
 import styles from '../App.css';
 import { intlShape } from 'react-intl';
-import { intl } from '../../../util/react-intl-test-helper';
+import { intl } from '../../../util/react-intl-test-helper'; 
 import { toggleAddPost } from '../AppActions';
 
 const intlProp = { ...intl, enabledLanguages: ['en', 'fr'] };

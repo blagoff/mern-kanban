@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 export function IntlWrapper(props) {
   return (
     <IntlProvider {...props.intl} >
-      {props.children}
+      {props.children} 
     </IntlProvider>
   );
 }
